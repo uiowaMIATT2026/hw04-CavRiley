@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+    <category>MIATT.HW04.cavriley</category>
+    <title>Gradient Anisotropic Diffusion Filter</title>
+    <description>
+        Applies gradient-based anisotropic diffusion filtering to reduce noise
+        while preserving edges. Input is cast to float for processing.
+    </description>
+    <version>1.0</version>
+    <documentation-url></documentation-url>
+    <license></license>
+    <contributor>cavriley</contributor>
+
+    <parameters>
+        <label>Filter Parameters</label>
+        <description>Anisotropic diffusion parameters</description>
+
+        <double>
+            <name>conductance</name>
+            <longflag>conductance</longflag>
+            <description>Conductance parameter controlling edge sensitivity</description>
+            <label>Conductance</label>
+            <default>2.0</default>
+            <constraints>
+                <minimum>0.001</minimum>
+                <maximum>100.0</maximum>
+                <step>0.1</step>
+            </constraints>
+        </double>
+
+        <double>
+            <name>timeStep</name>
+            <longflag>timeStep</longflag>
+            <description>Time step for each diffusion iteration (must be small for stability)</description>
+            <label>Time Step</label>
+            <default>0.0625</default>
+            <constraints>
+                <minimum>0.0001</minimum>
+                <maximum>0.5</maximum>
+                <step>0.001</step>
+            </constraints>
+        </double>
+
+        <integer>
+            <name>iterations</name>
+            <longflag>iterations</longflag>
+            <description>Number of diffusion iterations</description>
+            <label>Iterations</label>
+            <default>5</default>
+            <constraints>
+                <minimum>1</minimum>
+                <maximum>100</maximum>
+                <step>1</step>
+            </constraints>
+        </integer>
+    </parameters>
+
+    <parameters>
+        <label>IO</label>
+        <description>Input/output parameters</description>
+        <image>
+            <name>input</name>
+            <longflag>inputVolume</longflag>
+            <label>Input Volume</label>
+            <channel>input</channel>
+            <description>Input volume to be filtered</description>
+        </image>
+        <image>
+            <name>output</name>
+            <longflag>outputVolume</longflag>
+            <label>Output Volume</label>
+            <channel>output</channel>
+            <description>Gradient anisotropic diffusion filtered output</description>
+        </image>
+    </parameters>
+
+</executable>
