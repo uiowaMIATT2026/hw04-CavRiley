@@ -31,6 +31,6 @@ include(${GenerateCLP_USE_FILE})
 include(${SlicerExecutionModel_USE_FILE})
 include(${SlicerExecutionModel_CMAKE_DIR}/SEMMacroBuildCLI.cmake)
 
-set(MYHAWKID "yourhawkidhere") # <----- YOU MUST CHANGE THIS!
+set(MYHAWKID "cavriley")
 
 add_subdirectory(src)
