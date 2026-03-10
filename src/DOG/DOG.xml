@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+    <category>MIATT.HW04.cavriley</category>
+    <title>Difference of Gaussians Filter</title>
+    <description>
+        Computes the Difference of Gaussians (DOG) edge-enhancing filter.
+        Applies two Gaussian LPFs with sigma1 and sigma2, subtracts them,
+        and rescales the result to an unsigned char (0-255) output image.
+    </description>
+    <version>1.0</version>
+    <documentation-url></documentation-url>
+    <license></license>
+    <contributor>cavriley</contributor>
+
+    <parameters>
+        <label>Filter Parameters</label>
+        <description>Sigma values for the two Gaussian filters</description>
+
+        <double>
+            <name>sigma1</name>
+            <longflag>sigma1</longflag>
+            <description>Sigma for the first Gaussian filter (usually smaller)</description>
+            <label>Sigma 1</label>
+            <default>1.0</default>
+            <constraints>
+                <minimum>0.001</minimum>
+                <maximum>100.0</maximum>
+                <step>0.1</step>
+            </constraints>
+        </double>
+
+        <double>
+            <name>sigma2</name>
+            <longflag>sigma2</longflag>
+            <description>Sigma for the second Gaussian filter (usually larger)</description>
+            <label>Sigma 2</label>
+            <default>2.0</default>
+            <constraints>
+                <minimum>0.001</minimum>
+                <maximum>100.0</maximum>
+                <step>0.1</step>
+            </constraints>
+        </double>
+    </parameters>
+
+    <parameters>
+        <label>IO</label>
+        <description>Input/output parameters</description>
+        <image>
+            <name>input</name>
+            <longflag>inputVolume</longflag>
+            <label>Input Volume</label>
+            <channel>input</channel>
+            <description>Input volume to be filtered</description>
+        </image>
+        <image>
+            <name>output</name>
+            <longflag>outputVolume</longflag>
+            <label>Output Volume</label>
+            <channel>output</channel>
+            <description>DOG filtered output volume (unsigned char, 0-255)</description>
+        </image>
+    </parameters>
+
+</executable>
