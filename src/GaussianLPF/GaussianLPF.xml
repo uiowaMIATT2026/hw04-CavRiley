@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+    <category>MIATT.HW04.cavriley</category>
+    <title>Gaussian Low-Pass Filter</title>
+    <description>
+        Applies a 3D Gaussian low-pass filter using RecursiveGaussianImageFilter
+        in X, Y, and Z directions with equal sigma.
+    </description>
+    <version>1.0</version>
+    <documentation-url></documentation-url>
+    <license></license>
+    <contributor>cavriley</contributor>
+
+    <parameters>
+        <label>Filter Parameters</label>
+        <description>Parameters for the Gaussian LPF</description>
+
+        <double>
+            <name>sigma</name>
+            <longflag>sigma</longflag>
+            <description>Sigma (standard deviation) for the Gaussian kernel, applied equally in X, Y, Z</description>
+            <label>Sigma</label>
+            <default>1.0</default>
+            <constraints>
+                <minimum>0.001</minimum>
+                <maximum>35.0</maximum>
+                <step>0.1</step>
+            </constraints>
+        </double>
+    </parameters>
+
+    <parameters>
+        <label>IO</label>
+        <description>Input/output parameters</description>
+        <image>
+            <name>input</name>
+            <longflag>inputVolume</longflag>
+            <label>Input Volume</label>
+            <channel>input</channel>
+            <description>Input volume to be filtered</description>
+        </image>
+        <image>
+            <name>output</name>
+            <longflag>outputVolume</longflag>
+            <label>Output Volume</label>
+            <channel>output</channel>
+            <description>Gaussian LPF filtered output volume</description>
+        </image>
+    </parameters>
+
+</executable>
